@@ -1,0 +1,44 @@
+header
+    nav.navbar.navbar-expand-lg.bg-body-tertiary
+        div.container-fluid
+            img.navbar-logo(src='frost-bat.png')
+            a.navbar-brand(href="#") Frost Bat
+            button.navbar-toggler(
+                aria-label="Toggle navigation" 
+                aria-expanded="false" 
+                aria-controls="navbarNav" 
+                data-bs-target="#navbarNav" 
+                data-bs-toggle="collapse" 
+                type="button"
+            )
+                span.navbar-toggler-icon
+            div#navbarNav.collapse.navbar-collapse
+                ul.navbar-nav.me-auto.mb-2.mb-lg-0
+                    if user
+                        li.nav-item
+                            a.nav-link.active(
+                                href="/" 
+                                aria-current="page"
+                                ) Home
+                        if user
+                            if user.role === 'admin'
+                                li.nav-item
+                                    a.nav-link(
+                                        href="/users" 
+                                        aria-current="page"
+                                        ) Users
+                        li.nav-item.dropdown.d-flex
+                            a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+                                i.bi.bi-person-circle
+                            ul.dropdown-menu
+                                li
+                                    a.dropdown-item(href='/change-password')
+                                        div.row
+                                            div.col Password
+                                            div.col
+                                                i.bi.bi-shield-lock
+                                    a.dropdown-item(href='/logout')
+                                        div.row
+                                            div.col Logout
+                                            div.col
+                                                i.bi.bi-door-closed
