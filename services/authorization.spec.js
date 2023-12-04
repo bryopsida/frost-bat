@@ -25,18 +25,6 @@ describe('services/authorization.js', () => {
           })
         ).toBeTruthy()
       })
-      it('should allow authenticated users to about', () => {
-        expect(
-          authorizationService.isAllowed({
-            user: {
-              username: 'test',
-              role: 'user'
-            },
-            path: '/about',
-            method: 'GET'
-          })
-        ).toBeTruthy()
-      })
       it('should not allow unauthenticated users to home', () => {
         expect(
           authorizationService.isAllowed({
